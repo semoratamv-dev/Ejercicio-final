@@ -1,0 +1,502 @@
+/* 
+   Estilo:Elegant & Modern Design for Zapateria deportiva Morís
+   Author: Antigravity AI
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    /* Color Palette - Premium Dark Mode */
+    --primary: #ff4757;
+    --primary-hover: #ff6b81;
+    --secondary: #2f3542;
+    --accent: #ffa502;
+    --bg-main: #a3a7b1;
+    --bg-card: rgba(30, 41, 59, 0.7);
+    --text-main: #f1f2f6;
+    --text-muted: #a4b0be;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --reset-h1: #18bc1800;
+    --h2-color: rgb(231, 72, 14);
+    --li-color: yellowgreen;
+    /* Typography */
+    --font-main: 'Outfit', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+
+    /* Layout */
+    --max-width: 1200px;
+    --radius: 16px;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 71, 87, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 165, 2, 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Navigation & Header */
+header {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    width: min(calc(100% - 40px), var(--max-width));
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+body {
+    padding-top: 120px;
+    /* Espacio para el header fijo */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+header nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--primary);
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+/* Typography Enhancements */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    color: var(--h2-color);
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    color: #E34536;
+    margin-bottom: 0.5rem;
+}
+
+
+p[style*="text-align:center"] {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--primary), transparent);
+    margin: 40px 0;
+    opacity: 0.5;
+}
+
+/* Products Gallery */
+.productos {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    list-style: none;
+}
+
+.galeria li {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.galeria li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03));
+    z-index: 0;
+}
+
+.galeria li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary);
+}
+
+.galeria li a {
+    text-decoration: none;
+    color: inherit;
+    z-index: 1;
+}
+
+.galeria li h3 {
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.galeria li p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    height: 3.6em;
+    overflow: hidden;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    margin-bottom: 15px;
+}
+
+.galeria li img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: calc(var(--radius) - 4px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.galeria li:hover img {
+    transform: scale(1.05);
+}
+
+/* Ficha Zapato */
+.ficha {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) 1.2fr;
+    gap: 50px;
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+    max-width: 1000px;
+    margin: 60px auto;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    align-items: center;
+}
+
+
+.ficha img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    transition: transform 0.5s ease;
+}
+
+.ficha img:hover {
+    transform: scale(1.02);
+}
+
+
+.ficha .contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ficha h1 {
+    text-align: left;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    /* Asegurar visibilidad */
+    -webkit-text-fill-color: initial;
+    /* Resetear el degradado para la ficha si es necesario */
+}
+
+
+.ficha h2 {
+    color: var(--accent);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ficha h3 {
+    color: var(--text-muted);
+    font-family: var(--font-main);
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.ficha p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.ficha .tallas {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+ul.tallas li {
+    list-style: none;
+    background: var(--glass);
+    color: var(--li-color);
+    border: 1px solid var(--glass-border);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+ul.tallas li:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* Buttons & Controls */
+.btn,
+input[type="submit"],
+button[type="submit"],
+button[type="reset"] {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-family: var(--font-main);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+.btn:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover,
+button[type="reset"]:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+}
+
+/* Custom Submit Button Color */
+.boton {
+    background: var(--li-color) !important;
+    color: var(--secondary) !important;
+    box-shadow: 0 4px 15px rgba(154, 205, 50, 0.3) !important;
+}
+
+.boton:hover {
+    background: #addb33 !important;
+    box-shadow: 0 6px 20px rgba(154, 205, 50, 0.4) !important;
+}
+
+/* Forms Styling */
+form {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: white;
+    font-family: var(--font-main);
+    transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+select[multiple] {
+    height: 120px;
+}
+
+/* Reset / CRUD Menu */
+.reset,
+.crear_db {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: var(--radius);
+    text-align: center;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.menucrud {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.menucrud li a {
+    background: var(--glass);
+    padding: 15px;
+    border-radius: 12px;
+    display: block;
+    color: var(--text-main);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menucrud li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+    padding-left: 25px;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main>* {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 900px) {
+    .ficha {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header nav ul {
+        gap: 15px;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+}

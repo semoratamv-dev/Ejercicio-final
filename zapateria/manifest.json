@@ -1,0 +1,43 @@
+{
+  "name": "Zapatería Deportiva Morís",
+  "short_name": "Morís",
+  "description": "Tu tienda premium de calzado deportivo. Gestiona tu inventario y descubre las últimas novedades.",
+  "start_url": "index.php",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver Inventario",
+      "short_name": "Inventario",
+      "description": "Accede directamente al listado de calzado",
+      "url": "index.php",
+      "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Gestionar (CRUD)",
+      "short_name": "CRUD",
+      "description": "Administrar productos y categorías",
+      "url": "actualizaciones/menu_crud.php",
+      "icons": [{ "src": "assets/img/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["shopping", "business"],
+  "lang": "es"
+}

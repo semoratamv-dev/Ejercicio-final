@@ -75,6 +75,37 @@ function borrarRegistro(mysqli $mysqli, string $tabla, $id): bool
     $col = 'id_' . $tabla;
 
     try {
+        if ($tabla === "zapato") {
+            //borrar tablas auxiliares zapato_talla, zapato_marca, zapato_color, zapato_para
+
+            $sql1 = "DELETE FROM zapato_talla WHERE fk_zapato = ? ";
+            $sql2 = "DELETE FROM zapato_marca WHERE fk_zapato = ? ";
+            $sql3 = "DELETE FROM zapato_color WHERE fk_zapato = ? ";
+            $sql4 = "DELETE FROM zapato_para WHERE fk_zapato = ? ";
+
+            //ejecutar las consultas
+
+            $stmt1 = $mysqli->prepare($sql1);
+            $stmt2 = $mysqli->prepare($sql2);
+            $stmt3 = $mysqli->prepare($sql3);
+            $stmt4 = $mysqli->prepare($sql4);
+
+            $stmt1->bind_param('i', $id);
+            $stmt2->bind_param('i', $id);
+            $stmt3->bind_param('i', $id);
+            $stmt4->bind_param('i', $id);
+
+            $stmt1->execute();
+            $stmt2->execute();
+            $stmt3->execute();
+            $stmt4->execute();
+
+            $stmt1->close();
+            $stmt2->close();
+            $stmt3->close();
+            $stmt4->close();
+
+        }
 
         $sql = "DELETE FROM `$tabla` WHERE `$col` = ? LIMIT 1";
         $stmt = $mysqli->prepare($sql);

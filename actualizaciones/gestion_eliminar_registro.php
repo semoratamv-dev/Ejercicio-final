@@ -4,7 +4,7 @@ require_once '../functions.php';
 getheader();
 
 $tipo = $_POST['tipo'] ?? '';
-$id = $_POST['id'] ?? $_POST['m'] ?? $_POST['t'] ?? $_POST['c'] ?? '';
+$id = $_POST['id'] ?? $_POST['m'] ?? $_POST['z'] ?? $_POST['t'] ?? $_POST['c'] ?? '';
 
 
 
